@@ -30,7 +30,25 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-    
+
+    // https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api
+    compileOnly 'javax.servlet.jsp:javax.servlet.jsp-api:2.3.3'
+
+    // https://mvnrepository.com/artifact/javax.servlet/jstl
+    implementation 'javax.servlet:jstl:1.2'
+
+    // https://mvnrepository.com/artifact/com.mysql/mysql-connector-j
+    implementation 'com.mysql:mysql-connector-j:8.0.31'
+
+    // https://mvnrepository.com/artifact/org.springframework/spring-webmvc
+    implementation 'org.springframework:spring-webmvc:5.3.24'
+
+    // https://mvnrepository.com/artifact/org.apache.tiles/tiles-jsp
+    implementation 'org.apache.tiles:tiles-jsp:2.2.2'
+
+    // https://mvnrepository.com/artifact/org.springmodules/spring-modules-validation
+    implementation 'org.springmodules:spring-modules-validation:0.8'
+
 }
 
 test {
