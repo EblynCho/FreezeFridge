@@ -9,7 +9,7 @@
 <div class="bbs_gallery">
     <ul class="gallery_con clearfix">
         <c:forEach var="result" items="${resultList}" varStatus="status">
-            <c:set var="goDetailUrl" value="${pageContext.request.contextPath}/youtube/detail.do?mv_code=${result.mv_code}" />
+<%--            <c:set var="goDetailUrl" value="${pageContext.request.contextPath}/youtube/detail.do?mv_code=${result.mv_code}" />--%>
             <c:set var="key" value="${fn:substring(result.mv_the_origin_url,17,100) }" />
             <li>
                 <a href="#" onclick="location.href='${goDetailUrl}'">

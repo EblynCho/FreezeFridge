@@ -1,4 +1,3 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
     Created by IntelliJ IDEA.
     User: admin
@@ -14,13 +13,26 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            height: 90vh;
+            width: 100vw;
+            background-image: url("image/list_3.png");
+            background-repeat : no-repeat;
+            background-size : cover;
+        }
+
+        .back {
+            background-color: #FFDE66;
+        }
+    </style>
 
 </head>
 <body>
-<div class="container mt-5 pt-5">
+<div class="container mt-5 p-5">
     <div class="container mt-5 p-5 border rounded ">
-        <div class="">
-            <table class="table" style="width: 600px">
+        <div class="mt-5 p-5 ">
+            <table class="table mx-auto align-middle" style="width: 600px">
                 <colgroup>
                     <col style="width: 25%;">
                     <col style="width: 75%;">
@@ -49,9 +61,9 @@
                 </tr>
                 </tbody>
             </table>
-        </div>
-        <div>
-            <input type="submit" class="" value="등록">
+            <div>
+                <input type="submit" class="" value="등록">
+            </div>
         </div>
     </div>
 </div>

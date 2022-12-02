@@ -16,16 +16,20 @@
 
     <style>
         body {
-            /*background-image: url('image/list.png');*/
+            height: 90vh;
+            width: 100vw;
+            background-image: url("image/list_3.png");
+            background-repeat : no-repeat;
+            background-size : cover;
         }
     </style>
 
 </head>
 <body>
 <%@ include file="dbconn.jsp" %>
-
-<div class="container mt-5 pt-5">
-    <main class="container mt-4">
+<div class="bg">
+<div class="container mt-5 p-5">
+    <main class="container mt-4 p-5">
         <div class="row">
             <div class="col-sm">
                 <table class="table table-hover table-sm align-middle">
@@ -92,6 +96,7 @@
             </div>
         </div>
     </main>
+</div>
 </div>
 </body>
 </html>

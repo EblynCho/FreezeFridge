@@ -24,5 +24,6 @@ public class MovieVO {
     private String mv_the_origin_url;
     private String mv_title;
 
+    private int mv_code;
 
 }
