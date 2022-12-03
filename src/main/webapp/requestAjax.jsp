@@ -5,23 +5,15 @@
     Time: 오후 3:58
     To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Title</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+<%@ page import="java.sql.*" %>
+<%@ page import="org.json.simple.JSONArray" %>
+<%@ page import="org.json.simple.JSONObject" %>
 
-</head>
-<body>
 <%@ include file="dbconn.jsp" %>
 <%
     PreparedStatement pstmt = null;
     ResultSet rs = null;
 
-    String keyword = null;
 
     try {
         String sql = "SELECT keyword FROM board ";
@@ -30,12 +22,17 @@
         pstmt = conn.prepareStatement(sql);
         rs = pstmt.executeQuery();
 
+        JSONArray keywordList = new JSONArray();
+
         while (rs.next()) {
-            keyword = rs.getString("keyword");
+            JSONObject obj = new JSONObject();
+            obj.put("keyword", rs.getString("keyword"));
+            keywordList.add(obj);
         }
+        out.print(keywordList.toJSONString());
     }
     catch (SQLException e) {
-        out.println("SQLException : " + e.getMessage());
+        out.print("SQLException : " + e.getMessage());
     }
     finally {
         if (rs != null) { rs.close(); }
@@ -43,10 +40,4 @@
         if (conn != null) { conn.close(); }
     }
 %>
-<div>
-    <tr>
-        <td><%=keyword%></td>
-    </tr>
-</div>
-</body>
-</html>
+

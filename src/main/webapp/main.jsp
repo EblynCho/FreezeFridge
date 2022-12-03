@@ -18,64 +18,48 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
     <script>
-        // $( function() {
-        //     let availableTags = [
-        //         "토마토",
-        //         "양배추",
-        //         "계란",
-        //         "새우"
-        //     ];
-        //
-        //     $( "#search" ).autocomplete({
-        //         source: availableTags
-        //     });
-        // } );
 
         $( function() {
             let tags = [];
 
             $.ajax({
                 url : "requestAjax.jsp",
-                data: {type:tags},
-                success : function(){
-                    let tags = $("keyword").map(function () {
-                        return {
-                            value: $("keyword", this).text()
-                        };
-                    }).get();
+                type: "GET",
+                data: {},
+                success : function(data){
+                    // alert("연결성공");
+
+                    data = data.trim();
+                    // console.log(data);
+
+                    let obj = JSON.parse(data);
+
+                    for (let i = 0; i < obj.length; i++) {
+                        if (obj[i].keyword.includes(',')) {
+                            let arr2 = obj[i].keyword.split(', ')
+                            tags = tags.concat(arr2)
+                        } else {
+                            tags.push(obj[i].keyword);
+                        }
+                    }
+
+                    console.log(tags)
+                    // 중복 제거
+                    let keywordList =[];
+                    tags.forEach((element) => {
+                        if (!keywordList.includes(element)) {
+                            keywordList.push(element);
+                        }
+                    })
+                    console.log(keywordList);
+
                     $( "#search" ).autocomplete({
-                        source: tags
+                        source: keywordList
                     });
                 }
             });
         });
-        // $( function() {
-        //
-        //     $.ajax({
-        //         url: "requestAjax.jsp",
-        //         dataType: "xml",
-        //         success: function( xmlResponse ) {
-        //             let data = $( "keyword", xmlResponse ).map(function() {
-        //                 return {
-        //                     value: $("keyword", this).text()
-        //                     // value: $( "name", this ).text() + ", " +
-        //                     //     ( String.prototype.trim.call( $( "countryName", this ).text() ) ||
-        //                     //         "(unknown country)" ),
-        //                     // id: $( "geonameId", this ).text()
-        //                 };
-        //             }).get();
-        //             $( "#search" ).autocomplete({
-        //                 source: data,
-        //                 minLength: 0,
-        //                 select: function( event, ui ) {
-        //                     log( ui.item ?
-        //                         "Selected: " + ui.item.value + ", geonameId: " + ui.item.id :
-        //                         "Nothing selected, input was " + this.value );
-        //                 }
-        //             });
-        //         }
-        //     });
-        // } );
+
     </script>
 
     <style>
@@ -101,7 +85,7 @@
 
 <div class="wrapper">
     <div class="content">
-        <input type="text" name="search" id="search" class="text-center" placeholder="재료를 입력하세요" style="font-size:20pt; border:0 solid black">
+        <input type="text" name="search" id="search" class="text-center" placeholder="재료를 입력하세요" style="font-size:20pt; border:0 solid black" autofocus>
     </div>
 </div>
 </body>
