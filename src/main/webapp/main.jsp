@@ -29,10 +29,10 @@
                 success : function(data){
                     // alert("연결성공");
 
-                    data = data.trim();
+                    // data = data.trim();
                     // console.log(data);
 
-                    let obj = JSON.parse(data);
+                    let obj = JSON.parse(data.trim());
 
                     for (let i = 0; i < obj.length; i++) {
                         if (obj[i].keyword.includes(',')) {
@@ -53,8 +53,12 @@
                     })
                     console.log(keywordList);
 
-                    $( "#search" ).autocomplete({
-                        source: keywordList
+                    $( '#search' ).autocomplete({
+                        source: keywordList,
+                        select: function (event, ui) {
+                            //아이템 선택시 처리 코드
+                            location.replace('searchList.jsp')
+                        }
                     });
                 }
             });
@@ -77,6 +81,27 @@
             min-height: 100vh;
         }
         input:focus {outline: none;}
+
+        /*.ui-menu-item .ui-menu-item-wrapper .ui-state-active {*/
+        /*    background: #6693bc ;*/
+        /*    font-weight: bold ;*/
+        /*    color: #ffffff ;*/
+        /*}*/
+
+        .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-state-active.ui-button:hover
+        {
+            border: 1px solid #000;
+            background: #000;
+            font-weight: bold ;
+            font-size: 20px;
+            color: #ffffff ;
+        }
+
+        .ui-widget-content {
+            border: 1px solid #000;
+            font-weight: bold ;
+            font-size: 20px;
+        }
     </style>
 
 </head>
