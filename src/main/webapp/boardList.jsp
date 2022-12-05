@@ -28,75 +28,75 @@
 <body>
 <%@ include file="dbconn.jsp" %>
 <div class="bg">
-<div class="container mt-5 p-5">
-    <main class="container mt-4 p-5">
-        <div class="row">
-            <div class="col-sm">
-                <table class="table table-hover table-sm align-middle">
-                    <thead>
-                    <tr>
-                        <th>번호</th>
-                        <th>제목</th>
-                        <th>키워드</th>
-                        <th>썸네일</th>
-                        <th>유튜브 주소</th>
-                        <th>난이도</th>
-                        <th>좋아요 수</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <%
-                        PreparedStatement pstmt = null;
-                        ResultSet rs = null;
+    <div class="container mt-5 p-5">
+        <main class="container mt-4 p-5">
+            <div class="row">
+                <div class="col-sm">
+                    <table class="table table-hover table-sm align-middle">
+                        <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>키워드</th>
+                            <th>썸네일</th>
+                            <th>유튜브 주소</th>
+                            <th>난이도</th>
+                            <th>좋아요 수</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <%
+                            PreparedStatement pstmt = null;
+                            ResultSet rs = null;
 
-                        try {
-                            String sql = "SELECT * FROM board ";
-                            sql += "WHERE deleted_yn = 'N' ";
-                            sql += "ORDER BY idx DESC ";
-                            pstmt = conn.prepareStatement(sql);
-                            rs = pstmt.executeQuery();
+                            try {
+                                String sql = "SELECT * FROM board ";
+                                sql += "WHERE deleted_yn = 'N' ";
+                                sql += "ORDER BY idx DESC ";
+                                pstmt = conn.prepareStatement(sql);
+                                rs = pstmt.executeQuery();
 
-                            while (rs.next()) {
-                                int idx = rs.getInt("idx");
-                                String title = rs.getString("title");
-                                String keyword = rs.getString("keyword");
-                                String youtubeUrl = rs.getString("youtube_url");
-                                String level = rs.getString("level");
-                                int likeCnt = rs.getInt("like_cnt");
-                    %>
-                    <tr>
-                        <td><%=idx%></td>
-                        <td><a href="boardDetail.jsp?seq=<%=idx%>"><%=title%></a></td>
-                        <td><%=keyword%></td>
-                        <td>
-                            <img src="https://img.youtube.com/vi/<%=youtubeUrl%>/mqdefault.jpg" alt="유튜브 동영상 이미지입니다." >
-                        </td>
-                        <td>https://youtu.be/<%=youtubeUrl%></td>
-                        <td><%=level%></td>
-                        <td><%=likeCnt%></td>
-                    </tr>
-                    <%
+                                while (rs.next()) {
+                                    int idx = rs.getInt("idx");
+                                    String title = rs.getString("title");
+                                    String keyword = rs.getString("keyword");
+                                    String youtubeUrl = rs.getString("youtube_url");
+                                    String level = rs.getString("level");
+                                    int likeCnt = rs.getInt("like_cnt");
+                        %>
+                        <tr>
+                            <td><%=idx%></td>
+                            <td><a href="boardDetail.jsp?seq=<%=idx%>"><%=title%></a></td>
+                            <td><%=keyword%></td>
+                            <td>
+                                <img src="https://img.youtube.com/vi/<%=youtubeUrl%>/mqdefault.jpg" alt="유튜브 동영상 이미지입니다." >
+                            </td>
+                            <td>https://youtu.be/<%=youtubeUrl%></td>
+                            <td><%=level%></td>
+                            <td><%=likeCnt%></td>
+                        </tr>
+                        <%
+                                }
                             }
-                        }
-                        catch (SQLException e) {
-                            out.println("SQLException : " + e.getMessage());
-                        }
-                        finally {
-                            if (rs != null) { rs.close(); }
-                            if (pstmt != null) { pstmt.close(); }
-                            if (conn != null) { conn.close(); }
-                        }
-                    %>
+                            catch (SQLException e) {
+                                out.println("SQLException : " + e.getMessage());
+                            }
+                            finally {
+                                if (rs != null) { rs.close(); }
+                                if (pstmt != null) { pstmt.close(); }
+                                if (conn != null) { conn.close(); }
+                            }
+                        %>
 
-                    </tbody>
-                </table>
-                <div class="d-flex justify-content-end">
-                    <a href="boardWrite.jsp" class="btn btn-primary">글쓰기</a>
+                        </tbody>
+                    </table>
+                    <div class="d-flex justify-content-end">
+                        <a href="boardWrite.jsp" class="btn btn-primary">글쓰기</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-</div>
+        </main>
+    </div>
 </div>
 </body>
 </html>

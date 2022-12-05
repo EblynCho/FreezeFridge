@@ -11,23 +11,13 @@
 <%
     Connection conn = null;
 
-    try {
-        String url = "jdbc:mysql://localhost:3306/jspdb";
-        String userId = "bee";
-        String userPw = "1234";
+    String url = "jdbc:mysql://localhost:3306/jspdb";
+    String userId = "bee";
+    String userPw = "1234";
 
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        conn = DriverManager.getConnection(url, userId, userPw);
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    conn = DriverManager.getConnection(url, userId, userPw);
 //        out.println("DB 연결 성공");
-    }
-    catch (SQLException e) {
-//        out.println("DB 연결 실패");
-        out.println("SQLException : " + e.getMessage());
-    }
-    finally {
-//        if (conn != null) {
-//            conn.close();
-//        }
-    }
+
 %>
 
