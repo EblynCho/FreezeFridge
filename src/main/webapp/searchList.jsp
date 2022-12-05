@@ -24,15 +24,15 @@
             background-size : cover;
         }
 
-        .container {
-            width: 900px;
-            display: grid;
-            grid-template-rows: repeat(3, 1fr);
-            grid-template-columns: repeat(3, 1fr);
-            /*grid-auto-rows: 120px;*/
-            /*margin: 20%;*/
-            /*padding: 20%;*/
-        }
+        /*.container {*/
+        /*    !*width: 900px;*!*/
+        /*    display: grid;*/
+        /*    grid-template-rows: repeat(3, 1fr);*/
+        /*    grid-template-columns: repeat(3, 1fr);*/
+        /*    !*grid-auto-rows: 120px;*!*/
+        /*    !*margin: 20%;*!*/
+        /*    !*padding: 20%;*!*/
+        /*}*/
 
         #blog {
             display: flex;
@@ -63,6 +63,13 @@
             /* align-self: end; */
         }
 
+        ul {
+            list-style:none;
+        }
+        li {
+            float: left;
+        }
+
     </style>
 
 </head>
@@ -70,9 +77,8 @@
 <%@ include file="dbconn.jsp" %>
 
 <div class="m-5 p-5">
-<%--    <section class=" m-5 p-5">--%>
-<%--        <div class="">--%>
         <div class=" container" id="blog">
+    <ul>
     <%
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -91,13 +97,16 @@
                 String level = rs.getString("level");
     %>
 
-                <div class="item" >
-                    <img src="https://img.youtube.com/vi/<%=youtubeUrl%>/mqdefault.jpg" alt="유튜브 동영상 이미지입니다." >
-                        <div class="card-body">
-                            <h5 class="card-title text-center py-2"><%=title%></h5>
-                        </div>
-                </div>
+<%--                <div class="item" >--%>
+<%--                    <img src="https://img.youtube.com/vi/<%=youtubeUrl%>/mqdefault.jpg" alt="유튜브 동영상 이미지입니다." >--%>
+<%--                        <div class="card-body">--%>
+<%--                            <h5 class="card-title text-center py-2"><%=title%></h5>--%>
+<%--                        </div>--%>
+<%--                </div>--%>
 
+            <li>
+                <img src="https://img.youtube.com/vi/<%=youtubeUrl%>/mqdefault.jpg" alt="유튜브 동영상 이미지입니다." >
+            </li>
 
 <%
         }
@@ -111,9 +120,8 @@
         if (conn != null) { conn.close(); }
     }
 %>
-            </div>
-<%--        </div>--%>
-<%--    </section>--%>
+    </ul>
+        </div>
 </div>
 </body>
 </html>
