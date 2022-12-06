@@ -23,6 +23,9 @@
                 // alert("관리자 페이지 이동");
                 location.href = 'boardList.jsp'
             }
+            else {
+                alert('비밀번호가 틀렸습니다.')
+            }
         }
 
         window.addEventListener('DOMContentLoaded', function() {
