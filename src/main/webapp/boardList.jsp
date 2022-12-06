@@ -52,8 +52,8 @@
                             <th>썸네일</th>
                             <th>유튜브 주소</th>
 <%--                            <th>난이도</th>--%>
-                            <th>조회수</th>
-                            <th>좋아요 수</th>
+<%--                            <th>조회수</th>--%>
+<%--                            <th>좋아요 수</th>--%>
                         </tr>
                         </thead>
                         <tbody>
@@ -86,8 +86,8 @@
                             </td>
                             <td>https://youtu.be/<%=youtubeUrl%></td>
 <%--                            <td><%=level%></td>--%>
-                            <td><%=cnt%></td>
-                            <td><%=likeCnt%></td>
+<%--                            <td><%=cnt%></td>--%>
+<%--                            <td><%=likeCnt%></td>--%>
                         </tr>
                         <%
                                 }
