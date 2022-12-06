@@ -15,6 +15,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <style>
+
         body {
             height: 90vh;
             width: 100vw;
@@ -22,12 +23,22 @@
             background-repeat : no-repeat;
             background-size : cover;
         }
+        .seperate {
+            position: absolute;
+            left: 15%;
+            top: 15%;
+            display: flex;
+            align-items: center;
+        }
     </style>
 
 </head>
 <body>
 <%@ include file="dbconn.jsp" %>
 <div class="bg">
+    <div class="seperate">
+        <a href="main.jsp" class="me-2"><img src="image/home.png" alt=""></a>
+    </div>
     <div class="container mt-5 p-5">
         <main class="container mt-4 p-5">
             <div class="row">
@@ -40,7 +51,8 @@
                             <th>키워드</th>
                             <th>썸네일</th>
                             <th>유튜브 주소</th>
-                            <th>난이도</th>
+<%--                            <th>난이도</th>--%>
+                            <th>조회수</th>
                             <th>좋아요 수</th>
                         </tr>
                         </thead>
@@ -62,17 +74,19 @@
                                     String keyword = rs.getString("keyword");
                                     String youtubeUrl = rs.getString("youtube_url");
                                     String level = rs.getString("level");
+                                    int cnt = rs.getInt("cnt");
                                     int likeCnt = rs.getInt("like_cnt");
                         %>
-                        <tr>
+                        <tr onclick="location.href='boardDetail.jsp?idx=<%=idx%>'">
                             <td><%=idx%></td>
-                            <td><a href="boardDetail.jsp?seq=<%=idx%>"><%=title%></a></td>
+                            <td><%=title%></td>
                             <td><%=keyword%></td>
                             <td>
                                 <img src="https://img.youtube.com/vi/<%=youtubeUrl%>/mqdefault.jpg" alt="유튜브 동영상 이미지입니다." >
                             </td>
                             <td>https://youtu.be/<%=youtubeUrl%></td>
-                            <td><%=level%></td>
+<%--                            <td><%=level%></td>--%>
+                            <td><%=cnt%></td>
                             <td><%=likeCnt%></td>
                         </tr>
                         <%
@@ -91,7 +105,7 @@
                         </tbody>
                     </table>
                     <div class="d-flex justify-content-end">
-                        <a href="boardWrite.jsp" class="btn btn-primary">글쓰기</a>
+                        <a href="boardWrite.jsp" class="btn btn-outline-primary">글쓰기</a>
                     </div>
                 </div>
             </div>
