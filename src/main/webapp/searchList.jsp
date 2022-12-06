@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>검색 목록</title>
+    <title>오늘뭐해먹지?-검색 목록</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -79,7 +79,7 @@
 <div class="outer-div m-5 p-5">
     <div class="seperate">
         <a href="main.jsp" class="me-2"><img src="image/home.png" alt=""></a>
-        <span class="border-top border-bottom border-3 border-dark p-2 px-3" id="search-keyword"><%=keyword%></span>
+        <span class="border-top border-bottom border-3 border-dark p-1 px-3" id="search-keyword"><%=keyword%></span>
     </div>
     <div class="inner-div container mt-5" id="blog">
         <ul>
@@ -103,7 +103,7 @@
     %>
 
             <li>
-                <a href="#">
+                <a href="#" onclick="location.href='playYoutube.jsp?youtubeUrl=<%=youtubeUrl%>'">
                     <img src="https://img.youtube.com/vi/<%=youtubeUrl%>/mqdefault.jpg" alt="유튜브 동영상 이미지입니다." >
                     <h5 class="mt-2"><%=title%></h5>
                 </a>
