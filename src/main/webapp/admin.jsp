@@ -17,7 +17,7 @@
     <script>
         function login() {
             let pw = document.querySelector('#adminPassword');
-            console.log(pw.value)
+            // console.log(pw.value)
 
             if (pw.value == "1234") {
                 // alert("관리자 페이지 이동");
@@ -38,7 +38,7 @@
             position:relative;
         }
         #wrap .box{
-            width:300px;
+            width:400px;
             height:300px;
             position:absolute;
             left:50%;
@@ -52,12 +52,13 @@
 <body>
 <div class="container" id="wrap">
     <div class="box">
-        <form>
+        <form class="p-4 border rounded-3" style="background-color: #C9C8C7">
             <fieldset>
-                <legend>Administrator Mode</legend>
+                <legend class="text-center">Admin mode</legend>
+                <hr>
                 <div class="form-group">
                     <label for="adminPassword" class="form-label mt-2">Admin Password</label>
-                    <input type="password" class="form-control" id="adminPassword" placeholder="관리자 비밀번호를 입력하세요">
+                    <input type="password" class="form-control" id="adminPassword" placeholder="관리자 비밀번호를 입력하세요" autofocus>
                 </div>
                 <div class="mt-3 d-flex justify-content-end">
                     <button type="button" class="btn btn-dark" id="btn-admin" onclick="login()">Submit</button>

@@ -56,6 +56,11 @@
             color: black;
         }
 
+        .seperate {
+            position: absolute;
+            left: 15%;
+            top: 15%;
+        }
     </style>
 
 </head>
@@ -63,6 +68,9 @@
 <%@ include file="dbconn.jsp" %>
 
 <div class="outer-div m-5 p-5">
+    <div class="seperate">
+        <p>검색어</p>
+    </div>
     <div class="inner-div container mt-5" id="blog">
         <ul>
     <%
