@@ -24,6 +24,13 @@
                 location.href = 'boardList.jsp'
             }
         }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            const btnBack = document.querySelector('#btn-back');
+            btnBack.addEventListener('click', function () {
+                history.back();
+            });
+        });
     </script>
 
     <style>
@@ -52,16 +59,17 @@
 <body>
 <div class="container" id="wrap">
     <div class="box">
-        <form class="p-4 border rounded-3" style="background-color: #C9C8C7">
+        <form class="p-4 border rounded-3" style="border-color: #C9C8C7">
             <fieldset>
-                <legend class="text-center">Admin mode</legend>
+                <legend class="text-center">관리자 확인</legend>
                 <hr>
-                <div class="form-group">
+                <div class="form-group pt-2">
                     <label for="adminPassword" class="form-label mt-2">Admin Password</label>
                     <input type="password" class="form-control" id="adminPassword" placeholder="관리자 비밀번호를 입력하세요" autofocus>
                 </div>
                 <div class="mt-3 d-flex justify-content-end">
-                    <button type="button" class="btn btn-dark" id="btn-admin" onclick="login()">Submit</button>
+                    <button type="button" class="btn btn-outline-secondary me-2" id="btn-back">메인으로</button>
+                    <button type="button" class="btn btn-dark" id="btn-admin" onclick="login()">관리자 화면 이동</button>
                 </div>
             </fieldset>
         </form>
