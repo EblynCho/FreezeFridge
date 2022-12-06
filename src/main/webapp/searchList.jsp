@@ -24,43 +24,20 @@
             background-size : cover;
         }
 
-        /*.container {*/
-        /*    !*width: 900px;*!*/
-        /*    display: grid;*/
-        /*    grid-template-rows: repeat(3, 1fr);*/
-        /*    grid-template-columns: repeat(3, 1fr);*/
-        /*    !*grid-auto-rows: 120px;*!*/
-        /*    !*margin: 20%;*!*/
-        /*    !*padding: 20%;*!*/
-        /*}*/
+        .outer-div {
+            display : flex;
+            justify-content: center;
+            align-items : center;
+        }
+
 
         #blog {
-            display: flex;
+            /*display: flex;*/
             justify-content: center;
-            align-items: center;
-            padding: 20px;
+            /*align-items: center;*/
+            padding: 50px;
             box-sizing: border-box;
-            position: relative;
-        }
-
-        .list_start {
-            text-align: center;
-        }
-
-        .list_detail {
-            display: inline-block;
-            /*width: 220px;*/
-            /*height: 260px;*/
-            border: 1px solid;
-            margin-bottom: 5px;
-        }
-
-        .item {
-            display: inline-block;
-            align-self: stretch;
-            /* align-self: start; */
-            /* align-self: center; */
-            /* align-self: end; */
+            /*position: relative;*/
         }
 
         ul {
@@ -68,6 +45,15 @@
         }
         li {
             float: left;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            justify-content: center;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
         }
 
     </style>
@@ -76,9 +62,9 @@
 <body>
 <%@ include file="dbconn.jsp" %>
 
-<div class="m-5 p-5">
-        <div class=" container" id="blog">
-    <ul>
+<div class="outer-div m-5 p-5">
+    <div class="inner-div container mt-5" id="blog">
+        <ul>
     <%
         PreparedStatement pstmt = null;
         ResultSet rs = null;
@@ -97,15 +83,11 @@
                 String level = rs.getString("level");
     %>
 
-<%--                <div class="item" >--%>
-<%--                    <img src="https://img.youtube.com/vi/<%=youtubeUrl%>/mqdefault.jpg" alt="유튜브 동영상 이미지입니다." >--%>
-<%--                        <div class="card-body">--%>
-<%--                            <h5 class="card-title text-center py-2"><%=title%></h5>--%>
-<%--                        </div>--%>
-<%--                </div>--%>
-
             <li>
-                <img src="https://img.youtube.com/vi/<%=youtubeUrl%>/mqdefault.jpg" alt="유튜브 동영상 이미지입니다." >
+                <a href="#">
+                    <img src="https://img.youtube.com/vi/<%=youtubeUrl%>/mqdefault.jpg" alt="유튜브 동영상 이미지입니다." >
+                    <h5 class="mt-2"><%=title%></h5>
+                </a>
             </li>
 
 <%
@@ -120,8 +102,8 @@
         if (conn != null) { conn.close(); }
     }
 %>
-    </ul>
-        </div>
+        </ul>
+    </div>
 </div>
 </body>
 </html>
