@@ -13,8 +13,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
 
-    <link rel="stylesheet" href="style.css">
-
     <style>
         body {
             height: 90vh;
@@ -60,6 +58,12 @@
             position: absolute;
             left: 15%;
             top: 15%;
+            display: flex;
+            align-items: center;
+        }
+        #search-keyword {
+            font-size: 22px;
+            font-weight: bold;
         }
     </style>
 
@@ -67,9 +71,15 @@
 <body>
 <%@ include file="dbconn.jsp" %>
 
+<%
+    String keyword = request.getParameter("keyword");
+//    out.print("<h2>keyword" + keyword + "</h2>");
+%>
+
 <div class="outer-div m-5 p-5">
     <div class="seperate">
-        <p>검색어</p>
+        <a href="main.jsp" class="me-2"><img src="image/home.png" alt=""></a>
+        <span class="border-top border-bottom border-3 border-dark p-2 px-3" id="search-keyword"><%=keyword%></span>
     </div>
     <div class="inner-div container mt-5" id="blog">
         <ul>
@@ -79,14 +89,15 @@
 
         try {
             String sql = "SELECT * FROM board ";
-            sql += "WHERE deleted_yn = 'N' ";
+            sql += "WHERE deleted_yn = 'N' AND keyword = ? ";
 
             pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, keyword);
             rs = pstmt.executeQuery();
 
             while (rs.next()) {
                 String title = rs.getString("title");
-                String keyword = rs.getString("keyword");
+//                String keyword = rs.getString("keyword");
                 String youtubeUrl = rs.getString("youtube_url");
                 String level = rs.getString("level");
     %>

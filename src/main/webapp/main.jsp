@@ -17,8 +17,8 @@
 
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
     <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <script>
 
+    <script>
         $( function() {
             let tags = [];
 
@@ -43,7 +43,7 @@
                         }
                     }
 
-                    console.log(tags)
+                    // console.log(tags)
                     // 중복 제거
                     let keywordList =[];
                     tags.forEach((element) => {
@@ -51,13 +51,16 @@
                             keywordList.push(element);
                         }
                     })
-                    console.log(keywordList);
+                    // console.log(keywordList);
 
                     $( '#search' ).autocomplete({
                         source: keywordList,
                         select: function (event, ui) {
                             //아이템 선택시 처리 코드
-                            location.replace('searchList.jsp')
+                            // console.log(ui.item.label)
+                            let keyword = ui.item.label
+                            let url = 'searchList.jsp?keyword=' + keyword
+                            location.replace(url)
                         }
                     });
                 }
@@ -81,12 +84,6 @@
             min-height: 100vh;
         }
         input:focus {outline: none;}
-
-        /*.ui-menu-item .ui-menu-item-wrapper .ui-state-active {*/
-        /*    background: #6693bc ;*/
-        /*    font-weight: bold ;*/
-        /*    color: #ffffff ;*/
-        /*}*/
 
         .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-state-active.ui-button:hover
         {
@@ -113,7 +110,7 @@
 
 </head>
 <body>
-<%--<%@ include file="dbconn.jsp" %>--%>
+<%@ include file="dbconn.jsp" %>
 
 <button type="button" class="btn-admin" onclick="location.href='admin.jsp'">B</button>
 
