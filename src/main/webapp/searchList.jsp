@@ -89,7 +89,7 @@
 
         try {
             String sql = "SELECT * FROM board ";
-            sql += "WHERE deleted_yn = 'N' AND keyword = ? ";
+            sql += "WHERE deleted_yn = 'N' AND keyword like concat('%',?,'%') ";
 
             pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, keyword);
