@@ -102,11 +102,20 @@
             font-weight: bold ;
             font-size: 20px;
         }
+
+        .btn-admin {
+            position: absolute;
+            left: 24.7%;
+            top: 22%;
+            opacity: 0;
+        }
     </style>
 
 </head>
 <body>
 <%--<%@ include file="dbconn.jsp" %>--%>
+
+<button type="button" class="btn-admin" onclick="location.href='admin.jsp'">B</button>
 
 <div class="wrapper">
     <div class="content">
