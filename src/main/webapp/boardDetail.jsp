@@ -41,8 +41,12 @@
     #youtube-url {
       width: 70%;
     }
-    input {
+    #idx {
       border-style: none;
+    }
+    td {
+      line-height: 35px;
+      align-content: center;
     }
 
   </style>

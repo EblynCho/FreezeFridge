@@ -19,7 +19,7 @@
   String keyword = request.getParameter("keyword");
 
 
-  String sql = "UPDATE board SET title = ?, youtube_url = ?, keyword = ? ";
+  String sql = "UPDATE board SET title = ?, youtube_url = ?, keyword = ?, update_date = now() ";
   sql += "WHERE idx = ? ";
 
   PreparedStatement pstmt = null;
@@ -40,5 +40,5 @@
     if (conn != null) { conn.close(); }
   }
 
-  response.sendRedirect("boardList.jsp");
+  response.sendRedirect("boardList2.jsp?page=1");
 %>

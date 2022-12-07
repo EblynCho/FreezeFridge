@@ -27,10 +27,11 @@
         }
         .seperate {
             position: absolute;
-            left: 15%;
-            top: 15%;
-            display: flex;
-            align-items: center;
+            left: 18%;
+            top: 10%;
+        }
+        td img {
+            height: 130px;
         }
     </style>
 

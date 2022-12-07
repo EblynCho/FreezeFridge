@@ -19,7 +19,7 @@ public class EmpDao {
 		List<Emp> list=new ArrayList<Emp>();
 		try{
 			Connection con=getConnection();
-			PreparedStatement ps=con.prepareStatement("select * from board where deleted_yn = 'N' limit "+(start-1)+","+total);
+			PreparedStatement ps=con.prepareStatement("select * from board where deleted_yn = 'N' ORDER BY idx DESC  limit "+(start-1)+","+total);
 			ResultSet rs=ps.executeQuery();
 			while(rs.next()){
 				Emp e=new Emp();

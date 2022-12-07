@@ -38,6 +38,6 @@
     if (conn != null) { conn.close(); }
   }
 
-  response.sendRedirect("boardList.jsp");
+  response.sendRedirect("boardList2.jsp?page=1");
 %>
 

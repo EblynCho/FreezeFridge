@@ -23,15 +23,19 @@
     }
     .container {
         position: center;
-        margin: 10%;
-
+        /*margin: 10%;*/
     }
     .seperate {
         position: absolute;
-        left: 15%;
-        top: 15%;
+        left: 18%;
+        top: 10%;
         display: flex;
         align-items: center;
+    }
+    .boardviewbody {
+        position: absolute;
+        left: 20%;
+        top: 15%;
     }
   </style>
 </head>
@@ -49,7 +53,7 @@
 <%--        <a href="main.jsp"><img src="image/home.png" alt=""></a>--%>
     </div>
     <div class="boardviewbody" style="text-align:left">
-        <iframe width="1080" height="720" src="https://www.youtube.com/embed/<%=youtubeUrl%>"
+        <iframe width="1150" height="720" src="https://www.youtube.com/embed/<%=youtubeUrl%>"
                 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
         </iframe>
     </div>

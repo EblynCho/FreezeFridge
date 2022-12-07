@@ -56,8 +56,8 @@
 
         .seperate {
             position: absolute;
-            left: 15%;
-            top: 15%;
+            left: 18%;
+            top: 10%;
             display: flex;
             align-items: center;
         }

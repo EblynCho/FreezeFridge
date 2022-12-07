@@ -21,7 +21,7 @@
 
             if (pw.value == "1234") {
                 // alert("관리자 페이지 이동");
-                location.href = 'boardList.jsp'
+                location.href = 'boardList2.jsp?page=1'
             }
             else {
                 alert('비밀번호가 틀렸습니다.')
